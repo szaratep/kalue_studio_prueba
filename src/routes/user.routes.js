@@ -1,8 +1,10 @@
-const express = require('express');
+const {Router} = require('express');
 
-const router = express.Router();
+const router = Router();
 
-router.get('/info', (req, res) => {
+
+//Definicion de las rutas para los usuarios
+router.get('/', (req, res) => {
     res.json({
         msg: "Se optienen los usuarios"
     })
