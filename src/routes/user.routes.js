@@ -1,13 +1,10 @@
 const {Router} = require('express');
+const { getUser } = require('../controllers/user.controllers.js');
 
 const router = Router();
 
 
 //Definicion de las rutas para los usuarios
-router.get('/', (req, res) => {
-    res.json({
-        msg: "Se optienen los usuarios"
-    })
-})
+router.get('/', getUser);
 
 module.exports = router;
