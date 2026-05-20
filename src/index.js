@@ -1,4 +1,5 @@
-const express = require('express');
+import express from 'express';
+import userRoutes from './routes/user.routes.js';
 
 const app = express();
 
@@ -10,12 +11,8 @@ app.get ("/health", (req, res) => {
 })
 
 //Endpoints agrupados por entidad
-
 //user
-app.use('/users', require('./routes/user.routes.js'))
-
-
-
+app.use('/users', userRoutes);
 
 //Lanzamiento del servidor
 app.listen(3000, () =>{

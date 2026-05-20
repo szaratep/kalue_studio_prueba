@@ -22,10 +22,9 @@ function createUser ( req, res){
     })
 }
 
-module.exports ={
+export {
     getUser,
     updateUser,
     deleteUser,
     createUser
-
 };
