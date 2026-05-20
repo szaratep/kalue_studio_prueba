@@ -8,7 +8,10 @@
     "backend"
   ],
   "license": "ISC",
-  "author": "Sebastian Zarate Pinilla <szaratep>",
+  "author": "Sebastian Zarate Pinilla <sebaszarate2005@gmail.com>",
+  "contributors":[
+    "Katerin Castillo <kate.castilloc20@gmail.com>"
+  ],
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
