@@ -1,7 +1,13 @@
 import express from 'express';
+
+import dbConect from './config/mongo.config.js';
+
 import userRoutes from './routes/user.routes.js';
 
 const app = express();
+
+//Conexion a la base de datos
+dbConect();
 
 //Endpoint Health
 app.get ("/health", (req, res) => {
