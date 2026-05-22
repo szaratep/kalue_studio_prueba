@@ -25,7 +25,6 @@ const UserSchema = new Schema({
     password:{
         type: String,
         required: true,
-        minLength: 8,
         trim: true
     },
 
@@ -39,8 +38,17 @@ const UserSchema = new Schema({
     birthdate: {
         type: Date,
         required: true,
+    },
+
+    status: {
+        type: Boolean,
+        required: true,
+        default: false,
     }
-},{});
+},{
+    versionKey: false,
+    timestamps: true
+});
 
 //Segunda parte: definir el modelo
 const UserModel = new model('Users', UserSchema);

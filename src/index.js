@@ -9,6 +9,9 @@ const app = express();
 //Conexion a la base de datos
 dbConect();
 
+//Middelwares
+app.use(express.json()); //habilita la interpretacion de objetos json
+
 //Endpoint Health
 app.get ("/health", (req, res) => {
     res.json({

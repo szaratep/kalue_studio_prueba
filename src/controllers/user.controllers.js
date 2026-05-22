@@ -1,3 +1,5 @@
+import UserModel from "../models/User.models.js";
+
 function getUser  (req, res) {
     res.json({
         msg: "Listar todos los usuarios"
@@ -16,9 +18,12 @@ function deleteUser ( req, res){
     })
 }
 
-function createUser ( req, res){
+async function createUser ( req, res){
+    const inputData = req.body;
+    const productCreated = await UserModel.create(inputData); 
+
     res.json ({
-        msg: "Crear usuarios"
+        data: productCreated
     })
 }
 
