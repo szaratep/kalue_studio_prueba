@@ -12,7 +12,8 @@ const itemsSchema = new Schema({
 
 const orderSchema = new Schema({
     userId: {
-
+        type: Schema.Types.ObjectId,
+        ref: 'users'
     },
 
     status: {
@@ -24,7 +25,7 @@ const orderSchema = new Schema({
     items: [],
 
     mailingAddress: {
-
+        
     },
 
     subTotal: Number,
