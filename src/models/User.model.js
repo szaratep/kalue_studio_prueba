@@ -1,45 +1,7 @@
 import { Schema, Types, model } from 'mongoose';
+import addressesModel from './Addresses.model.js';
 
 //Primera parte: definir el schema
-const addressesSchema = new Schema({
-    alias: {
-        type: String,
-        required: true
-    },
-
-    street: {
-        type: String,
-        required: true
-    },
-
-    city: {
-        type: String,
-        required: true
-    },
-
-    state: {
-        type: String,
-        required: true
-    },
-
-    zipCode: {
-        type: String
-    },
-
-    country: {
-        type: String,
-        default: 'Colombia'
-    },
-
-    isDefault: {
-        type: Boolean,
-        default: false
-    }
-    
-
-}, {_id: false});
-
-
 const UserSchema = new Schema({
     name: {
         type: String,
@@ -87,7 +49,7 @@ const UserSchema = new Schema({
         trim: true
     },
 
-    addresses: [addressesSchema],
+    addresses: [ addressesModel ],
 
     birthdate: {
         type: Date,
