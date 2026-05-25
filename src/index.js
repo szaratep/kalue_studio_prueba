@@ -3,6 +3,7 @@ import express from 'express';
 import dbConect from './config/mongo.config.js';
 
 import userRoutes from './routes/user.routes.js';
+import orderRoutes from './routes/order.routes.js';
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.get ("/health", (req, res) => {
 //Endpoints agrupados por entidad
 //user
 app.use('/users', userRoutes);
+app.use('/orders', orderRoutes);
 
 //Lanzamiento del servidor
 app.listen(3000, () =>{
