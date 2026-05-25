@@ -1,14 +1,6 @@
 import { Schema, model} from 'mongoose'
-
-const itemsSchema = new Schema({
-    variantId:{},
-    productId: {},
-    name: String,
-    color: String,
-    size: String,
-    price: Number,
-    amount: Number
-},{});
+import addressesModel from './Adresses.model.js';
+import itemModel from './Items.model.js';
 
 const orderSchema = new Schema({
     userId: {
@@ -22,10 +14,10 @@ const orderSchema = new Schema({
         default: "pendiente"
     },
 
-    items: [],
+    items: [itemModel],
 
     mailingAddress: {
-        
+        type: [addressesModel]
     },
 
     subTotal: Number,
