@@ -1,3 +1,4 @@
+
 import express from 'express';
 
 import dbConect from './config/mongo.config.js';
@@ -19,6 +20,7 @@ app.get ("/health", (req, res) => {
 //Endpoints agrupados por entidad
 //user
 app.use('/users', userRoutes);
+app.use('/product', userRoutes);
 
 //Lanzamiento del servidor
 app.listen(3000, () =>{
