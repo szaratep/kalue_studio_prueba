@@ -17,7 +17,7 @@ const orderSchema = new Schema({
     items: [itemModel],
 
     mailingAddress: {
-        type: [addressesModel]
+        
     },
 
     subTotal: Number,

@@ -1,4 +1,4 @@
-import {Schema } from 'mongoose';
+import {Schema, model } from 'mongoose';
 
 const addressesSchema = new Schema({
     alias: {
