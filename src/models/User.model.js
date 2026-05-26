@@ -1,5 +1,5 @@
 import { Schema, Types, model } from 'mongoose';
-import addressesModel from './Addresses.model.js';
+import addressesSchema from './Addresses.model.js';
 
 //Primera parte: definir el schema
 const UserSchema = new Schema({
@@ -49,7 +49,7 @@ const UserSchema = new Schema({
         trim: true
     },
 
-    addresses: [ addressesModel ],
+    addresses: [ addressesSchema ],
 
     birthdate: {
         type: Date,

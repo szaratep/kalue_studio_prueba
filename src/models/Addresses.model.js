@@ -1,4 +1,4 @@
-import {Schema } from 'mongoose';
+import {Schema, model } from 'mongoose';
 
 const addressesSchema = new Schema({
     alias: {
@@ -38,6 +38,4 @@ const addressesSchema = new Schema({
 
 }, {_id: false});
 
-const addressesModel = new model('Adresses', addressesSchema);
-
-export default addressesModel;
+export default addressesSchema;
