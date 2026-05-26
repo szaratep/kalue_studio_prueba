@@ -16,15 +16,11 @@ async function createOrder (req, res){
             data: data
         });
     }catch(error){
-        res.json({
+        res.status(500).json({
             msg:"se genero un error al crear tu orden"
         })
         console.error(error);
     }
-
-    res.json({
-        msg: 'crea la orden de un usuario'
-    })
 }
 
 function updateOrder (req, res){
