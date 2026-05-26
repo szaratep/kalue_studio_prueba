@@ -1,20 +1,39 @@
+import { dbGetProduct, insertProduct } from "../service/product.service.js";
 
 
-import { insertProduct } from "../services/product.service.js"
-function getProduct ( req, res ) {
-    res.json({
-        msg: 'Listar los productos'
-    });
+
+const getProduct = async ( req, res ) => {
+    try {
+        const inputData = req.body;
+        
+         const data = await dbGetProduct (inputData);
 }
+        res.json({
+             msg: 'Obtener los productos',
+             data: data
+    });
+
+} catch (error) {
+        console.error( error );   
+
+              res.json({
+            msg: 'No se pudo obtener el producto'
+        })
+    }
 
 
-const createProduct = async ( req, res ) {
+
+
+
+
+const createProduct = async ( req, res ) =>{
     try{
         const inputData = req.body;
 
         const data = await insertProduct ( inputData);
         
         res.json({
+            msg: "crear un producto",
             data: data
     });
 } catch (error) {
