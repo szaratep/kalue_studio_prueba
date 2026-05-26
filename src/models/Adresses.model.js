@@ -1,6 +1,6 @@
 import {Schema, model } from 'mongoose';
 
-const addressesSchema = new Schema({
+const AddressesSchema = new Schema({
     alias: {
         type: String,
         required: true
@@ -38,6 +38,4 @@ const addressesSchema = new Schema({
 
 }, {_id: false});
 
-const addressesModel = new model('Adresses', addressesSchema);
-
-export default addressesModel;
+export default AddressesSchema;

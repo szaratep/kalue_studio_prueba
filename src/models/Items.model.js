@@ -1,6 +1,6 @@
 import { Schema, model} from 'mongoose'
 
-const itemSchema = new Schema({
+const ItemSchema = new Schema({
     variantId:{},
     productId: {},
     name: String,
@@ -10,6 +10,4 @@ const itemSchema = new Schema({
     amount: Number
 },{});
 
-const itemModel = new model('Items', itemSchema);
-
-export default itemModel;
+export default ItemSchema;

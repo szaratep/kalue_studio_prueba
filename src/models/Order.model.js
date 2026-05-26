@@ -1,8 +1,8 @@
 import { Schema, model} from 'mongoose'
-import addressesModel from './Adresses.model.js';
-import itemModel from './Items.model.js';
+import AddressesSchema from './Adresses.model.js';
+import ItemSchema from './Items.model.js';
 
-const orderSchema = new Schema({
+const OrderSchema = new Schema({
     userId: {
         type: Schema.Types.ObjectId,
         ref: 'users'
@@ -14,11 +14,9 @@ const orderSchema = new Schema({
         default: "pendiente"
     },
 
-    items: [itemModel],
+    items: [ItemSchema],
 
-    mailingAddress: {
-        
-    },
+    mailingAddress: AddressesSchema,
 
     subTotal: Number,
 
@@ -51,6 +49,6 @@ const orderSchema = new Schema({
     timestamps: true
 });
 
-const orderModel = new model('Orders', orderSchema);
+const orderModel = new model('Orders', OrderSchema);
 
 export default orderModel;
