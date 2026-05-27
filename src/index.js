@@ -11,6 +11,8 @@ const app = express();
 //Conexion a la base de datos
 dbConect();
 
+app.use (express.json());
+
 //Endpoint Health
 app.get ("/health", (req, res) => {
     res.json({
