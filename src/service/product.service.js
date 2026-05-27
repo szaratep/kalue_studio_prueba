@@ -11,11 +11,14 @@ const dbGetProduct = async () => {
 
 const dbDeleteProduct = async (id) => {
     return await ProductModel.findOneAndDelete ({ _id: id});
+}
+const dbUpdateProduct = async (id, inputData) => {
+    return await ProductModel.findOneAndDelete ({ _id: id});
 
 }
 export {
     insertProduct,
     dbGetProduct,
-    dbDeleteProduct
-
+    dbDeleteProduct,
+    dbUpdateProduct
 }

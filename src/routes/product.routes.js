@@ -10,7 +10,7 @@ const router = Router();
 
 router.get( '/', getProduct);
 router.post( '/', createProduct );
-router.patch( '/', updateProduct );
+router.patch( '/:id', updateProduct );
 router.delete( '/:id', deleteProduct );
 
 

@@ -1,5 +1,5 @@
 import ProductModel from "../models/Product.model.js";
-import { dbDeleteProduct, dbGetProduct, insertProduct } from "../service/product.service.js";
+import { dbDeleteProduct, dbGetProduct, dbUpdateProduct, insertProduct } from "../service/product.service.js";
 
 
 
@@ -42,11 +42,28 @@ const createProduct = async ( req, res ) =>{
     }
 }
 
-function updateProduct ( req, res ) {
+const updateProduct =  async ( req, res ) => {
+
+    try {
+            const id = req.params.id;               //id de la ruta para encontrar el documento que quiero actualizar
+    const inputData = req.body;            //obteniendo el objeto con el parametro que quiero actualizar
+
+    const data = await dbUpdateProduct ( inputData);
+
     res.json({
-        msg: 'Actualiza un producto'
+        msg: 'Actualiza un producto',
+        data: data
     });
 }
+     catch (error){
+        console.error( error );   
+            res.status(500).json({
+                msg: 'No se pudo actualizar el producto'
+            } )
+        
+    }
+}
+
 
 const deleteProduct = async( req, res ) => {
     try {
@@ -69,9 +86,6 @@ const deleteProduct = async( req, res ) => {
 }
 }
    
-
-  
-
 
 export {
     getProduct,
