@@ -1,16 +1,26 @@
-import { insertOrders } from '../service/order.service.js';
+import { dbGetOrders, dbInsertOrders,  } from '../service/order.service.js';
 
-function getOrder (req, res){
-    res.json({
-        msg: 'lee todos las ordenes de un usario'
-    })
+async function getOrder (req, res){
+    try{
+        const data = await dbGetOrders();
+        
+        res.status(200).json({
+            data: data
+        })
+    }catch(error){
+        console.error(error);
+        res.status(500).json({
+            msg: 'No existe ningun registro'
+        });
+    }
 }
+
 
 async function createOrder (req, res){
     try{
         const inputData = req.body;
 
-        const data = await insertOrders(inputData);
+        const data = await dbInsertOrders(inputData);
 
         res.status(201).json({
             data: data

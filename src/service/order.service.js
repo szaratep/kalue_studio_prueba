@@ -1,9 +1,24 @@
 import orderModel from "../models/Order.model.js";
 
-const insertOrders = async (newOrder) => {
+const dbInsertOrders = async (newOrder) => {
     return await orderModel.create(newOrder)
 };
 
+const dbGetOrders = async () => {
+    return await orderModel.find();
+};
+
+const dbUpdateOrders = async(newOrder) => {
+    return 
+}
+
+const dbDeleteOrders = async(OrderId) => {
+    return await orderModel.deleteOne();
+}
+
 export {
-    insertOrders
+    dbInsertOrders,
+    dbGetOrders,
+    dbUpdateOrders,
+    dbDeleteOrders
 }
