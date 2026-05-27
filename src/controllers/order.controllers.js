@@ -1,5 +1,4 @@
-import orderModel from '../models/Order.model.js';
-import { dbDeleteOrders, dbGetOrders, dbInsertOrders,  } from '../service/order.service.js';
+import { dbDeleteOrders, dbGetOrders, dbInsertOrders, dbUpdateOrders,  } from '../service/order.service.js';
 
 async function getOrder (req, res){
     try{
@@ -34,12 +33,25 @@ async function createOrder (req, res){
     }
 }
 
-function updateOrder (req, res){
+async function updateOrder (req, res){
 
-    
-    res.json({
-        msg: 'actualiza una orden de un usuario'
-    })
+    try{
+        const id = req.params.idOrder
+
+        const inputData = req.body
+ 
+        const data = await dbUpdateOrders(id, inputData);
+
+        res.json({
+            msg: 'Se ha actualizado el usuario con exito',
+            data: data
+        })
+    }catch(error){
+        console.error(error)
+        res.status(500).json({
+            msg : "No se logro realizar la actualizacion, intentalo de nuevo"
+        })
+    }
 }
 
 async function deleteOrder (req, res){

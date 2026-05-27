@@ -8,8 +8,8 @@ const dbGetOrders = async () => {
     return await orderModel.find();
 };
 
-const dbUpdateOrders = async(newOrder) => {
-    return 
+const dbUpdateOrders = async(orderId, inputData) => {
+    return await orderModel.findByIdAndUpdate(orderId, { $set: inputData }, { returnDocument: 'after' });
 }
 
 const dbDeleteOrders = async(orderId) => {

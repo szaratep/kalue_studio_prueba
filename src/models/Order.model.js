@@ -1,16 +1,16 @@
-import { Schema, model} from 'mongoose'
+import { Schema, model } from 'mongoose'
 import AddressesSchema from './Adresses.model.js';
 import ItemSchema from './Items.model.js';
 
 const OrderSchema = new Schema({
-    userId: {
-        type: Schema.Types.ObjectId,
-        ref: 'users'
-    },
+    // userId: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'users'
+    // },
 
     status: {
         type: String,
-        statusVariable: ["pendiente", "pagado", "en preparacion", "enviado", "entregado", "cancelado"],
+        enum: ["pendiente", "pagado", "en preparacion", "enviado", "entregado", "cancelado"],
         default: "pendiente"
     },
 
@@ -18,33 +18,45 @@ const OrderSchema = new Schema({
 
     mailingAddress: AddressesSchema,
 
-    subTotal: Number,
+    subTotal: {
+            type: Number,
+            default: 0
+        },
 
-    discount: Number,
+        discount: {
+            type: Number,
+            default: 0
+        },
 
-    shippingCost: Number,
+        shippingCost: {
+            type: Number,
+            default: 0
+        },
 
-    total: Number,
+        total: {
+            type: Number,
+            default: 0
+        },
 
-    paymentMethod: {
-        type: String,
-        paymentMethodVarible: ["tarjeta", "pse", "contraentrega", "efectivo"],
-        default: "efectivo"
-    },
+        paymentMethod: {
+            type: String,
+            enum: ["tarjeta", "pse", "contraentrega", "efectivo"],
+            default: "efectivo"
+        },
 
-    paymentStatus: {
-        type: String,
-        paymentStatusVariable: ["pendiente", "aprobado", "rechazado"],
-        default: "pendiente" 
-    },
+        paymentStatus: {
+            type: String,
+            enum: ["pendiente", "aprobado", "rechazado"],
+            default: "pendiente"
+        },
 
-    paymentReference: String,
+        paymentReference: String,
 
-    notes: {
-        type: String,
-        maxLength: 200
-    }
-}, {
+        notes: {
+            type: String,
+            maxLength: 200
+        }
+    }, {
     versionKey: false,
     timestamps: true
 });
