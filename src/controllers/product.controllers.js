@@ -1,5 +1,5 @@
 import ProductModel from "../models/Product.model.js";
-import { dbGetProduct, insertProduct } from "../service/product.service.js";
+import { dbDeleteProduct, dbGetProduct, insertProduct } from "../service/product.service.js";
 
 
 
@@ -48,11 +48,29 @@ function updateProduct ( req, res ) {
     });
 }
 
-function deleteProduct( req, res ) {
-    res.json({
-        msg: 'Elimina un producto'
+const deleteProduct = async( req, res ) => {
+    try {
+         const id = req.params.id;
+
+    const data = await dbDeleteProduct(id);
+
+      res.json({
+        msg: 'Elimina un producto',
+        data: data
     });
+
+    } catch (error) {
+        console.error( error );   
+
+              res.status(500).json({
+            msg: 'No se pudo eliminar el producto'
+    }  
+)
 }
+}
+   
+
+  
 
 
 export {
