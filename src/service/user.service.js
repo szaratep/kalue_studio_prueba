@@ -1,10 +1,30 @@
 import UserModel from "../models/User.model.js";
 
 // Services: Su funcion es comunicarse con la base de datos
-const insertUser = async (newUser) => {
+const dbCreateUser = async (newUser) => {
     return await UserModel.create(newUser);  
 }
 
+const dbGetUsers = async () => {
+    return await UserModel.find();
+}
+
+const dbGetUserByID = async (userId) =>{
+    return await UserModel.findOne({ _id: userId });
+}
+
+const dbUpdateUser = async (userId, inputData) => {
+    return await UserModel.findByIdAndUpdate(userId, inputData, { returnDocument: 'after', runValidators: true});
+}
+
+const dbDeleteUser = async (userId) => {
+    return await UserModel.findByIdAndDelete(userId);
+}
+
 export {
-    insertUser
+    dbCreateUser,
+    dbGetUsers,
+    dbGetUserByID,
+    dbUpdateUser,
+    dbDeleteUser
 }

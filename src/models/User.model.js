@@ -1,37 +1,30 @@
 import { Schema, Types, model } from 'mongoose';
-import AddressesSchema from './Addresses.model.js';
+import AddressesSchema from './Contact.model.js';
 
 //Primera parte: definir el schema
 const UserSchema = new Schema({
     name: {
         type: String,
-        required: true,
+        required: [true, 'El nombre es obligatorio'],
         trim:true
     },
 
     lastName: {
         type: String,
-        required: true,
+        required: [true, 'El apellido es obligatorio'],
         trim: true
     },
     
     userName: {
         type: String,
-        required: true,
+        required: [true, 'El nombre de usuario es obligatorio'],
         trim:true,
         unique: true
-    },
-    
-    email: {
-        type: String,
-        unique: true,
-        required: true,
-        trim:true
     },
 
     password:{
         type: String,
-        required: true,
+        required: [true, 'La constraseña es obligatoria'],
         trim: true
     },
 
@@ -39,28 +32,24 @@ const UserSchema = new Schema({
         type: String,
         roleType: ["admin", "vendedor", "comprador"],
         default: "comprador",
-        required: true
     },
-
-    phoneNumber: {
-        type: String,
-        minLength: 10,
-        maxLength: 10,
-        trim: true
-    },
-
-    addresses: [ AddressesSchema ],
 
     birthdate: {
         type: Date,
-        required: true,
+        required: [true, 'Tu fehca de cumpleañoss es obligatoria'],
     },
 
     status: {
         type: Boolean,
-        required: true,
         default: false,
-    }
+    },
+
+    // contactID: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'contacts',
+    //     required: [true, 'Los contactos son obligatorios']
+    // },
+
 },{
     versionKey: false,
     timestamps: true
