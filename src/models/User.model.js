@@ -1,5 +1,5 @@
 import { Schema, Types, model } from 'mongoose';
-import AddressesSchema from './Contact.model.js';
+
 
 //Primera parte: definir el schema
 const UserSchema = new Schema({
@@ -30,7 +30,7 @@ const UserSchema = new Schema({
 
     role: {
         type: String,
-        roleType: ["admin", "vendedor", "comprador"],
+        enum: ["admin", "vendedor", "comprador"],
         default: "comprador",
     },
 
