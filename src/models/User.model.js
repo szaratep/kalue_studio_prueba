@@ -44,11 +44,11 @@ const UserSchema = new Schema({
         default: false,
     },
 
-    // contactID: {
-    //     type: Schema.Types.ObjectId,
-    //     ref: 'contacts',
-    //     required: [true, 'Los contactos son obligatorios']
-    // },
+    contactID: {
+        type: Schema.Types.ObjectId,
+        ref: 'contacts',
+        required: [true, 'Los contactos son obligatorios']
+    },
 
 },{
     versionKey: false,

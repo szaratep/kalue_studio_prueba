@@ -89,7 +89,9 @@ async function deleteUser(req, res) {
 async function createUser(req, res) {
     try {
         const inputData = req.body;
+        console.log( inputData );
         const data = await dbCreateUser(inputData);
+
 
         res.status(201).json({
             data: data
