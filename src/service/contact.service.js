@@ -1,4 +1,4 @@
-import ContactModel from "../models/Contact.model";
+import ContactModel from "../models/Contact.model.js";
 
 const dbGetContact = async () => {
     return await ContactModel.find();
